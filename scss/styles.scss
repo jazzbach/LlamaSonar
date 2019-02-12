@@ -1,0 +1,234 @@
+$primary-color: #00001a;
+$highlight-color: rgb(0, 247, 255);
+$light-color: rgb(53, 225, 255);
+$text-color: rgb(233, 251, 252);
+$title-font: "Anurati", sans-serif;
+$body-font: "Byom", sans-serif;
+
+@font-face {
+    font-family: "Anurati";
+    src: url(../fonts/Anurati.otf) format("opentype");
+}
+
+@font-face {
+    font-family: "Byom";
+    src: url(../fonts/Byom.ttf);
+}
+
+body, html{
+    background-color: $primary-color;
+    margin: 0;
+    padding: 0;
+    color: $text-color;
+    font-family: $body-font;
+}
+
+h1{
+    letter-spacing: 2px;
+    font-size: 50px;
+    letter-spacing: 0.5em;
+    font-family: $title-font;
+    color: $highlight-color;
+}
+
+label{
+    letter-spacing: 0.2em;
+    display:block;
+}
+
+input{
+    padding: 15px;
+    background: none;
+    border: none;
+    color: $text-color;
+    letter-spacing: 0.2em;
+    font-family: inherit;
+}
+
+input:not([type=button]){
+    border-bottom: 1px solid $highlight-color;
+    display:block;
+}
+
+input[type=button]{
+    color: $highlight-color;
+}
+
+input:focus{
+    outline: none;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ui.panel.content ul img{
+    position: relative;
+    top:5px;
+    margin: 0px 10px;
+}
+
+li{
+    padding: 10px 0px;
+    margin: 0;
+    font-size: 13px;
+}
+
+.connect-btn{
+    width: 100%;
+    text-align: center;
+    margin-top:50px;
+}
+
+.connect-btn input{
+    cursor: pointer;
+    font-family: $title-font;
+    color: $text-color;
+    font-size: 30px;
+    letter-spacing: 0.5em;
+}
+
+.title-logo{
+    width: 600px;
+    height: 280px;
+    background-image: url("../images/submarine.png");
+}
+
+.team-display{
+    position: fixed;
+    top: 20px;
+    width: 220px;
+    letter-spacing: 0.3em;
+}
+
+.team-display.left{
+    left: 20px;
+}
+
+.team-display.right{
+    right: 20px;
+}
+
+.ui.panel {
+  width: calc(100%-20px);
+  height: calc(100%-20px);
+  padding: 2px;
+  background: $highlight-color; /* fallback */
+  display: inline-block;
+  -webkit-filter: drop-shadow(5px 5px 5px rgba(0, 161, 237, 0.25));
+  filter: drop-shadow(5px 5px 5px rgba(0, 161, 237, 0.25));
+  width: 100%;
+  height: 100%;
+}
+
+.ui.panel.left{
+    background: linear-gradient(0deg, transparent 0px, $highlight-color 0) top left, linear-gradient(0deg, transparent 0px, $highlight-color 0) top right, linear-gradient(315deg, transparent 10px, $highlight-color 0) bottom right, linear-gradient(0deg, transparent 0px, $highlight-color 0) bottom left;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.ui.panel.right{
+    background: linear-gradient(0deg, transparent 0px, $highlight-color 0) top left, linear-gradient(0deg, transparent 0px, $highlight-color 0) top right, linear-gradient(45deg, transparent 10px, $highlight-color 0) bottom left, linear-gradient(0deg, transparent 0px, $highlight-color 0) bottom right;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.ui.panel > .content {
+  width: calc(100% - 1em);
+  height: calc(100% - 1em);
+  padding: 0.5em;
+  background: #00202F; /* fallback */
+  background: linear-gradient(0deg, transparent 0px, $primary-color 0) top left, linear-gradient(0deg, transparent 0px, $primary-color 0) top right, linear-gradient(315deg, transparent 10px, $primary-color 0) bottom right, linear-gradient(0deg, transparent 0px, $primary-color 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  color: $text-color;
+  display: inline-block;
+}
+
+.ui.panel > .content.left{
+  background: linear-gradient(0deg, transparent 0px, $primary-color 0) top left, linear-gradient(0deg, transparent 0px, $primary-color 0) top right, linear-gradient(315deg, transparent 10px, $primary-color 0) bottom right, linear-gradient(0deg, transparent 0px, $primary-color 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.ui.panel > .content.right {
+    background: linear-gradient(0deg, transparent 0px, $primary-color 0) top left, linear-gradient(0deg, transparent 0px, $primary-color 0) top right, linear-gradient(45deg, transparent 10px, $primary-color 0) bottom left, linear-gradient(0deg, transparent 0px, $primary-color 0) bottom right;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    text-align: right;
+}
+
+.label-on-top{
+    display:inline-block;
+    margin-right:20px;
+}
+
+.absolute-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+/* EFFECTS */
+
+svg { position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  circle {
+    transform-origin: 50% 50%;
+    stroke-width: 2px;
+    stroke: $highlight-color;
+  }
+  
+  #c1 {
+    stroke-dasharray: 7%;
+    animation: xrot 7s infinite linear;
+  }
+  #c2 {
+    stroke-dasharray: 6%;
+    animation: xrot 6s infinite linear;
+  }
+  #c3 {
+    stroke-dasharray: 5%;
+    animation: xrot 5s infinite linear;
+  }
+  #c4 { 
+    stroke-dasharray: 4%;
+    animation: xrot 4s infinite linear;
+  }
+  #c5 { 
+    stroke-dasharray: 3%;
+    animation: xrot 3s infinite linear;
+  }
+  #c6 { 
+    stroke-dasharray: 2%;
+    animation: xrot 2s infinite linear;
+  }
+  
+  @keyframes xrot {
+      0% { transform: rotate(0deg); opacity: 1; }
+    50% { transform: rotate(360deg); opacity: .05; }
+  }
+
+.glow{
+    color: $text-color;
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+  
+@-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 0px #fff, 0 0 10px #fff, 0 0 20px$highlight-color, 0 0 30px $highlight-color, 0 0 40px $highlight-color;
+    }
+    to {
+      text-shadow: 0 0 10px #fff, 0 0 20px $light-color, 0 0 30px $light-color, 0 0 40px $light-color, 0 0 50px $light-color;
+    }
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Captain Sonar</title>
+
+    <link href="css/styles.css" rel="stylesheet" type="text/css"></a>
+    <link href="css/custom-select.css" rel="stylesheet" type="text/css"></a>
+
+</head>
+<body ng-controller="AppController as app">
+    <div class="current-screen" width="65%">
+        <div id="screen" class="app-screen border" >
+
+            <div ui-view></div>
+
+        </div>
+    </div>
+    <section id="scripts">
+        <!-- Load all the Angular components here, we assume they will load 1.4.7-->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="//code.angularjs.org/1.6.2/angular.js"></script>
+        <script src="//code.angularjs.org/1.6.2/angular-resource.js"></script>
+        <script src="//unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+        <script type="module" src="main.js"></script>
+    </section>
+</body>
+</html>

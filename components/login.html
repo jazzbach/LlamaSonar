@@ -1,0 +1,78 @@
+<div id="login">
+    <div class="absolute-center">
+        <div class="title-logo">
+            <!-- Image -->
+        </div>
+        <div class="game-title">
+            <h1 class="glow">CAPTAIN SONAR</h1>
+        </div>
+        <div class="login">
+            <div class="label-on-top">
+                <Label>Nickname</Label>
+                <input type="text" value="Nickname" ng-model="user.nickname">
+            </div>
+            <div class="label-on-top">
+                <Label>Role</Label>
+                <div class="custom-select" style="width:200px;">
+                    <select>
+                        <option>Choose role</option>
+                        <option>Captain</option>
+                        <option>Radio Operator</option>
+                        <option>First Mate</option>
+                        <option>First Engineer</option>
+                    </select>
+                </div>
+            </div>
+            <div class="label-on-top">
+                <Label>Team</Label>
+                <div class="custom-select" style="width:200px;">
+                    <select>
+                        <option>Choose team</option>
+                        <option>Team A</option>
+                        <option>Team B</option>
+                    </select>
+                </div>
+            </div>
+            <div class="connect-btn">
+                <input type="button" value="JOIN" ng-click="$ctrl.authenticate(user)">
+            </div>
+        </div>
+    </div>
+    <div class="team-display left">
+        <div class="ui panel left">
+            <div class="ui panel content left">
+            <strong>Team A</strong>
+            <ul>
+                <li ng-click="$ctrl.setPage('Captain')"><img src="../app/images/cptn-icon.png"><span>Captain</span></li>
+                <li ng-click="$ctrl.setPage('Radio')"><img src="../app/images/radar-icon.png">Radio Operator</li>
+                <li ng-click="$ctrl.setPage('FirstMate')"><img src="../app/images/fmate-icon.png">First Mate</li>
+                <li ng-click="$ctrl.setPage('Engineer')"><img src="../app/images/engineer-icon.png">First Engineer</li>
+            </ul>
+            </div>
+        </div>
+    </div>
+    <div class="team-display right">
+        <div class="ui panel right">
+            <div class="ui panel content right">
+            <strong>Team B</strong>
+            <ul>
+                <li ng-click="$ctrl.setPage('Captain')"><img src="../app/images/cptn-icon.png"><span>Captain</span></li>
+                <li ng-click="$ctrl.setPage('Radio')"><img src="../app/images/radar-icon.png">Radio Operator</li>
+                <li ng-click="$ctrl.setPage('FirstMate')"><img src="../app/images/fmate-icon.png">First Mate</li>
+                <li ng-click="$ctrl.setPage('Engineer')"><img src="../app/images/engineer-icon.png">First Engineer</li>
+            </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="effect" style="display: none;">
+    <svg>
+        <circle id="c1" cx="50%" cy="50%" r="70%"/>
+        <circle id="c2" cx="50%" cy="50%" r="60%"/>
+        <circle id="c3" cx="50%" cy="50%" r="50%"/>
+        <circle id="c4" cx="50%" cy="50%" r="40%"/>
+        <circle id="c5" cx="50%" cy="50%" r="30%"/>
+        <circle id="c6" cx="50%" cy="50%" r="20%"/>
+    </svg>
+</div>
+<section><script src="js/utils/custom-select.js"></script></section>

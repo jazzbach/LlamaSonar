@@ -1,0 +1,24 @@
+*
+{
+    /* Reset padding and margin of body */
+    padding:                0;
+    margin:                 0;
+    box-sizing:             border-box;   
+}
+
+body
+{
+    /*background:             url(../images/captain_background.jpg);
+    background-repeat:      no-repeat;
+    background-size:        cover;*/
+
+    display:                flex;  
+    flex-flow:              row wrap;
+    font-weight:            bold;
+    text-align:             center;
+}
+
+body > *
+{
+    flex:                   1 100%;
+}
