@@ -36,6 +36,17 @@ export class App {
 
                 let contentType = 'application/x-www-form-urlencoded;charset=utf-8'
                 $httpProvider.defaults.headers.post['Content-Type'] = contentType;
+            })
+            .service('LoginService', function( $http, $q, $httpParamSerializerJQLike ) {
+                this.authenticate = function( user ) {
+                    var clientCallback = $q.defer();
+                    //var params = $httpParamSerializerJQLike( user );
+                    var params = JSON.stringify(user);
+                    $http.post( 'server/logout/index.php', params ).then(function(obj){
+                        var response = obj.data;
+                        console.log(response);
+                    });
+                }
             });
 
         /*

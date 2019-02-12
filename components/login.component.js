@@ -8,7 +8,7 @@
 'use strict';
 export class LoginComponentController {
 
-    constructor( $state ) {
+    constructor( $state, LoginService ) {
         this.stateSvc = $state
         this.vm = {
             nickname: "unknown",
@@ -18,6 +18,7 @@ export class LoginComponentController {
             status:   "off"
         };
         this.currentPage = 'Login';
+        this.logServ = LoginService;
     }
 
     authenticate( user ) {
@@ -26,7 +27,7 @@ export class LoginComponentController {
         this.vm.role = this.vm.master.role;
         this.vm.team = this.vm.master.team;
         this.vm.status = "on";
-        console.log(user);
+        this.logServ.authenticate(user);
         // This might be the place to contact a service that could in fact authenticate the user...
     }
 
@@ -61,10 +62,10 @@ bindings   Control the data binding between template variables and the controlle
 
             binding data elements are tied to $ctrl by default.
 */
-angular.module('app.components')
+angular.module('app.components', ['app.services'])
     .component('login', {
         templateUrl: 'components/login.html',
-        controller:  ['$state', LoginComponentController ],
+        controller:  ['$state', 'LoginService', LoginComponentController],
         bindings:    {
             nickname: "<",
             id:       "<",
