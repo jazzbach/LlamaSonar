@@ -36,6 +36,7 @@ export class LoginComponentController {
         this.vm.master = {};
         this.vm.status = "off";
         this.vm.nickname = "";
+        this.logServ.logout(user);
     }
 
     register( user ) {
