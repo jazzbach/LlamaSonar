@@ -32,5 +32,9 @@ export class LoginServ {
             return obj.data;
         })
     }
+
+    startGame () {
+        //once all users logged in, start game
+    }
 }
 
