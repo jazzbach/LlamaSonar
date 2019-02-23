@@ -36,5 +36,11 @@ export class LoginServ {
     startGame () {
         //once all users logged in, start game
     }
+
+    //get all logged in 
+    //call php within
+    //no params
+    //call php
+    //return obj.data
 }
 
