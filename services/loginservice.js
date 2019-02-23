@@ -1,6 +1,6 @@
 'use strict';
 
-class LoginServ{
+export class LoginServ {
     constructor($http, $q, $httpParamSerializerJQLike){
         this.http = $http;
         this.httpParamSerializerJQLike = $httpParamSerializerJQLike;
@@ -25,3 +25,7 @@ class LoginServ{
 
     }
 }
+//exort class
+//import to app.jss
+//add export class login service
+

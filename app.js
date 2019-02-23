@@ -9,6 +9,8 @@
  */
 'use strict';
 
+import { LoginServ } from  './services/loginservice.js';
+
 export class App {
 
     constructor() {
