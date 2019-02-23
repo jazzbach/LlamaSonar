@@ -24,11 +24,36 @@ export class LoginComponentController {
     authenticate( user ) {
         angular.copy( user, this.vm.master );
         this.vm.nickname = this.vm.master.nickname;
-        this.vm.role = this.vm.master.role;
-        this.vm.team = this.vm.master.team;
-        this.vm.status = "on";
-        this.logServ.authenticate(user);
-        // This might be the place to contact a service that could in fact authenticate the user...
+        let selects = $(".select-selected");
+        for(let i = 0; i < selects.length; i++){
+            if($(selects[i]).parent("#role").length && user!= undefined){
+                user.role = $(selects[i]).text();
+            }
+            if($(selects[i]).parent("#team").length && user!= undefined){
+                user.team = $(selects[i]).text();
+            }
+        }
+        if(this.checkUserFilled(user)){
+            this.logServ.authenticate(user);
+            this.updateScreen(user);
+        }
+    }
+
+    updateScreen(user){
+        let role = user.role.split(" ")[1];
+        if(role == undefined) role = user.role;
+        let id = user.team.substr(user.team.length - 1) + "-" + role;
+        id = id.toLowerCase();
+        $("#"+id).text(user.nickname);
+        console.log(id);
+    }
+
+    checkUserFilled(user){
+        if(!user||!user.nickname||user.team=="Choose team"||user.role=="Choose role"){
+            return false;
+        }else{
+            return true;
+        }
     }
 
     logoff() {
@@ -36,6 +61,7 @@ export class LoginComponentController {
         this.vm.master = {};
         this.vm.status = "off";
         this.vm.nickname = "";
+        this.logServ.logout(user);
     }
 
     register( user ) {

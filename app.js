@@ -31,22 +31,40 @@ export class App {
         Add the config for the httpProvider for the entire app - use PHP
         style data passing to a server if required.
         */
-        angular.module('app.services')
-            .config( function( $httpProvider ) {
+        class LoginServ{
+            constructor($http, $q, $httpParamSerializerJQLike){
+                this.http = $http;
+                this.httpParamSerializerJQLike = $httpParamSerializerJQLike;
+            }
+            
+            authenticate( user ){
+                //var clientCallback = $q.defer();
+                console.log(user);
+                let params = {
+                    action:'getAll',
+                    user: user
+                }
+                params = this.httpParamSerializerJQLike( params );
 
+                this.http.post( 'server/RoleDao.php', params ).then((obj) => {
+                    //var response = JSON.parse(obj.data);
+                    console.log(obj.data);
+                });
+            }
+
+            logout ( user ){
+
+            }
+        }
+
+
+        angular.module('app.services')
+            .config( function( $httpProvider) {
                 let contentType = 'application/x-www-form-urlencoded;charset=utf-8'
                 $httpProvider.defaults.headers.post['Content-Type'] = contentType;
             })
             .service('LoginService', function( $http, $q, $httpParamSerializerJQLike ) {
-                this.authenticate = function( user ) {
-                    var clientCallback = $q.defer();
-                    //var params = $httpParamSerializerJQLike( user );
-                    var params = JSON.stringify(user);
-                    $http.post( 'server/logout/index.php', params ).then(function(obj){
-                        var response = obj.data;
-                        console.log(response);
-                    });
-                }
+                return new LoginServ($http, $q, $httpParamSerializerJQLike);
             });
 
         /*
