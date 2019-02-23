@@ -16,8 +16,7 @@ export class LoginServ {
         params = this.httpParamSerializerJQLike( params );
 
         this.http.post( 'server/RoleDao.php', params ).then((obj) => {
-            //var response = JSON.parse(obj.data);
-            console.log(obj.data);
+            return obj.data;
         });
     }
 
@@ -30,7 +29,7 @@ export class LoginServ {
         params = this.httpParamSerializerJQLike( params );
 
         this.http.post( 'server/RoleDao.php', params ).then((obj) => {
-            console.log(obj.data);
+            return obj.data;
         })
     }
 }
