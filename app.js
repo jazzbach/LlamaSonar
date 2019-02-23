@@ -31,31 +31,7 @@ export class App {
         Add the config for the httpProvider for the entire app - use PHP
         style data passing to a server if required.
         */
-        class LoginServ{
-            constructor($http, $q, $httpParamSerializerJQLike){
-                this.http = $http;
-                this.httpParamSerializerJQLike = $httpParamSerializerJQLike;
-            }
-            
-            authenticate( user ){
-                //var clientCallback = $q.defer();
-                console.log(user);
-                let params = {
-                    action:'getAll',
-                    user: user
-                }
-                params = this.httpParamSerializerJQLike( params );
 
-                this.http.post( 'server/RoleDao.php', params ).then((obj) => {
-                    //var response = JSON.parse(obj.data);
-                    console.log(obj.data);
-                });
-            }
-
-            logout ( user ){
-
-            }
-        }
 
 
         angular.module('app.services')
