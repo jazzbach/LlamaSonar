@@ -1,16 +1,126 @@
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+
+  /*--First mate--*/
+
+.firstmate-container{
+width: 100%;
 }
 
-h1{
-	text-align: center;
+.character-info{
+height: 50px;
 }
 
-img{
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	width: 50%;
+.profile-picture-container{
+width: 30%;
+float: left;
 }
+
+.header-container{
+width: 70%;
+float: left;
+}
+
+.profile-picture{
+display: block;
+max-width:230px;
+max-height:95px;
+width: auto;
+height: auto;
+margin: 15px;
+}
+
+.damage-container{
+width: 100%;
+}
+
+.damage-label{
+width: 45%;
+float: left;
+}
+
+.damage-checkboxes-container{
+width: 30%;
+float: left;
+}
+
+.damage-checkbox{
+float:left;
+}
+
+.clear{
+clear:both;
+}
+
+.abilities-container{
+text-align: center;
+width: 100%;
+}
+
+.ability-row{
+float:left;
+width: 100%;
+}
+
+.ability-item{
+width: 25%;
+float: left;
+border: solid 1px white;
+margin: 15px;
+padding: 15px;
+}
+
+.ability-label{
+font-size: 14px;
+}
+
+.ability-image-container{
+float: left;
+width: 50%;
+}
+
+.ability-image{
+display: block;
+max-width:230px;
+max-height:95px;
+width: auto;
+height: auto;
+margin: 15px;
+}
+
+.ability-options-container{
+float: left;
+}
+
+.ability-option-checkbox{
+
+}
+
+.left{
+float: left;
+}
+
+.right{
+float: right;
+}
+
+.button-container{
+width: 100%;
+}
+
+.center{
+display: inline-block;
+width: 60%;
+}
+
+.margin-t-10{
+margin-top: 10px;
+}
+
+.text-center{
+text-align: center;
+}
+
+.button{
+padding: 20px;
+font-size: 16px;
+}
+  /*--First mate--*/
