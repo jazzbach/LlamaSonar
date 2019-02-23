@@ -22,10 +22,16 @@ export class LoginServ {
     }
 
     logout ( user ){
+        console.log(user);
+        let params = {
+            action: 'getAll',
+            user: user
+        }
+        params = this.httpParamSerializerJQLike( params );
 
+        this.http.post( 'server/RoleDao.php', params ).then((obj) => {
+            console.log(obj.data);
+        })
     }
 }
-//exort class
-//import to app.jss
-//add export class login service
 

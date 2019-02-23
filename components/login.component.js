@@ -27,7 +27,7 @@ export class LoginComponentController {
         this.vm.role = this.vm.master.role;
         this.vm.team = this.vm.master.team;
         this.vm.status = "on";
-        this.logServ.authenticate(user);
+        this.logServ.login(user);
         // This might be the place to contact a service that could in fact authenticate the user...
     }
 
