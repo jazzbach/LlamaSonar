@@ -20,7 +20,7 @@ export class LoginComponentController {
         this.currentPage = 'Login';
         this.logServ = LoginService;
         this.interval = $interval;
-        this.interval(this.updateLobby, 5000);
+        this.interval(this.updateLobby.bind(this), 5000);
     }
 
     authenticate( user ) {
@@ -49,6 +49,7 @@ export class LoginComponentController {
             }
             if(usersLoggedIn.length == 8) setPage(user.role);
         */
+       //this.setPage('Captain');
     }
 
     updateUser(user){
@@ -57,7 +58,6 @@ export class LoginComponentController {
         let id = user.team.substr(user.team.length - 1) + "-" + role;
         id = id.toLowerCase();
         $("#"+id).text(user.nickname);
-        console.log(id);
     }
 
     checkUserFilled(user){
