@@ -10,6 +10,7 @@
 import { app } from          './app.js';
 
 import { LoginComponentController } from  './components/login.component.js';
+import { TabComponentController } from  './components/tab.component.js';
 
 export class AppController {
 

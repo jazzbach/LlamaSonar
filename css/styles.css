@@ -131,6 +131,25 @@ li {
   background-repeat: no-repeat;
   text-align: right; }
 
+.tabs{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.sections{
+  align-self: flex-start;
+  display: flex;
+}
+
+.tab{
+  margin: 20px 40px;
+}
+
+.logout-container{
+  margin: 20px;
+}
+
 .label-on-top {
   display: inline-block;
   margin-right: 20px; }

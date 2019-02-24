@@ -72,6 +72,7 @@ export class App {
                 // Set the initial state
                 $state.transitionTo('Login');
             }]);
+            
     }
 }
 
