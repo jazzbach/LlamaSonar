@@ -20,7 +20,7 @@ export class LoginComponentController {
         this.currentPage = 'Login';
         this.logServ = LoginService;
         this.interval = $interval;
-        this.interval(this.updateLobby.bind(this), 5000);
+        this.interval(this.updateLobby.bind(this), 3000);
     }
 
     authenticate( user ) {
@@ -37,7 +37,8 @@ export class LoginComponentController {
         }
         if(this.checkUserFilled(user)){
             this.logServ.login(user);
-            this.updateUser(user);
+            this.updateLobby(user);
+            $("#join-btn").fadeOut();
         }
     }
 
