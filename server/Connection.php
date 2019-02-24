@@ -19,7 +19,7 @@ class Connection {
     private static $db   = 'sonardb';
     private static $charset = 'utf8';
     private static $user = 'root';
-    private static $pass = 'root';
+    private static $pass = 'toor';
     private static $options = [
         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,

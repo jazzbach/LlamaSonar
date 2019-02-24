@@ -37,36 +37,29 @@ class UserDAO {
             }
         }
 
+        // Bruno. Following commented code not needed. Is here only for copy and paste
+        // ease of use
         // try {
-
         //     //$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
         //     //$pdo = new PDO($dsn, $user, $pass, $options);
         //     $pdo = Connection::getConnection();
-            
         //     $query = 'select User.idUser as id, User.nickname, Role.role, Team.team from User
         //             inner join Role on User.idRole  = Role.idRole
         //             inner join Team on User.idTeam = Team.idTeam';
-
         //     $data = $pdo->query($query)->fetchAll(PDO::FETCH_UNIQUE);
-
         //     echo json_encode($data);
-
         //     // One row 
         //     //$stmt = $pdo->query($query);
         //     //$row = $stmt->fetch();
         //     //echo $row['nickname'] . "\n";
-
         //     // Many rows
         //     //while ($row = $stmt->fetch()){
         //     //    echo $row['nickname'] . "\n";
         //     //}
-
-
         // } catch (PDOException $ex) {
         //     //throw new PDOException($e->getMessage(), (int)$e->getCode());
         //     die(json_encode(array(' error' => $ex->getTraceAsString ()   )));
         // }
-
         // //echo $result;
 
 		return 0;
@@ -193,7 +186,31 @@ class UserDAO {
 		
 		return true;
 
-	}
+    }
+    
+    private function deleteAll(){
+        try {
+            $db = Connection::getConnection();
+
+            $statement = $db->prepare("update user set
+                    nickname = ?,
+                    idRole = ?,
+                    idTeam = ?
+                    where idUser = ?
+            ");
+
+            $statement->execute([
+                $data['nickname'],
+                $data['idRole'],
+                $data['idTeam'],
+                $data['idUser']
+            ]);
+            
+        }catch (PDOException $ex) {
+            //throw new PDOException($e->getMessage(), (int)$e->getCode());
+            die(json_encode(array(' error' => $ex->getTraceAsString ()   )));
+        }
+    }
 }
 
 // ========================================================================
@@ -202,6 +219,8 @@ class UserDAO {
 //
 $ajaxPostHandler = new UserDAO();
 
+// Bruno: Following code is useless. Is commented just for copying and pasting
+// it here and there easily
 // SQL READ
 // One row 
 //$stmt = $pdo->query($query);

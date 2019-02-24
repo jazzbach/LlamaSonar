@@ -23,7 +23,9 @@ export class LoginComponentController {
         this.interval(this.updateLobby.bind(this), 3000);
     }
 
-    authenticate( user ) {
+    // Bruno changed (Sat Feb 23 2019 15:16)
+    //Function was previously named 'authenticate'
+    login( user ) {
         angular.copy( user, this.vm.master );
         this.vm.nickname = this.vm.master.nickname;
         let selects = $(".select-selected");
