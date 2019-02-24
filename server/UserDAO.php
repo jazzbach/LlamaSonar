@@ -186,7 +186,31 @@ class UserDAO {
 		
 		return true;
 
-	}
+    }
+    
+    private function deleteAll(){
+        try {
+            $db = Connection::getConnection();
+
+            $statement = $db->prepare("update user set
+                    nickname = ?,
+                    idRole = ?,
+                    idTeam = ?
+                    where idUser = ?
+            ");
+
+            $statement->execute([
+                $data['nickname'],
+                $data['idRole'],
+                $data['idTeam'],
+                $data['idUser']
+            ]);
+            
+        }catch (PDOException $ex) {
+            //throw new PDOException($e->getMessage(), (int)$e->getCode());
+            die(json_encode(array(' error' => $ex->getTraceAsString ()   )));
+        }
+    }
 }
 
 // ========================================================================
@@ -195,6 +219,8 @@ class UserDAO {
 //
 $ajaxPostHandler = new UserDAO();
 
+// Bruno: Following code is useless. Is commented just for copying and pasting
+// it here and there easily
 // SQL READ
 // One row 
 //$stmt = $pdo->query($query);
