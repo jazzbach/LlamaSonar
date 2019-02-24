@@ -8,7 +8,8 @@ export class LoginServ {
     
     login( user ){
         //var clientCallback = $q.defer();
-        console.log(user);
+        //console.log(user);
+        console.log('ITS WORKING');
         let params = {
             action:'getAll',
             user: user
@@ -16,6 +17,7 @@ export class LoginServ {
         params = this.httpParamSerializerJQLike( params );
 
         this.http.post( 'server/RoleDao.php', params ).then((obj) => {
+            console.log(obj);
             return obj.data;
         });
     }

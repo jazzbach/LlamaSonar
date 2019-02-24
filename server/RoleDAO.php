@@ -39,7 +39,7 @@ class RoleDAO {
             $db = Connection::getConnection();
             
             //$data = $pdo->query($query)->fetch(PDO::FETCH_UNIQUE);
-            $statement = $db->prepare("select * from role where idRole=?");
+            $statement = $db->prepare("select * from Roles where idRole=?");
             $statement->execute([$id]);
             $data = $statement->fetch();
 
@@ -62,7 +62,7 @@ class RoleDAO {
             //$pdo = new PDO($dsn, $user, $pass, $options);
             $db = Connection::getConnection();
             
-            $query = 'select * from role';
+            $query = 'select * from Roles';
             $data = $db->query($query)->fetchAll(PDO::FETCH_UNIQUE);
             echo json_encode($data);
 
