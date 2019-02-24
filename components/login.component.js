@@ -43,6 +43,12 @@ export class LoginComponentController {
 
     updateLobby(){
         //let usersLoggedIn = this.logServ.getLoggedIn();
+        /*
+            for(let i = 0; i < userLoggedIn.length; i++){
+                updateUser(user);
+            }
+            if(usersLoggedIn.length == 8) setPage(user.role);
+        */
     }
 
     updateUser(user){
