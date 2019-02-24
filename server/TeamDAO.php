@@ -39,7 +39,7 @@ class TeamDAO {
             $db = Connection::getConnection();
             
             //$data = $pdo->query($query)->fetch(PDO::FETCH_UNIQUE);
-            $statement = $db->prepare("select * from team where idTeam=?");
+            $statement = $db->prepare("select * from Team where idTeam=?");
             $statement->execute([$id]);
             $data = $statement->fetch();
 
@@ -62,7 +62,7 @@ class TeamDAO {
             //$pdo = new PDO($dsn, $user, $pass, $options);
             $db = Connection::getConnection();
             
-            $query = 'select * from team';
+            $query = 'select * from Team';
             $data = $db->query($query)->fetchAll(PDO::FETCH_UNIQUE);
             echo json_encode($data);
 

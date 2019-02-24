@@ -9,15 +9,17 @@ export class LoginServ {
     login( user ){
         //var clientCallback = $q.defer();
         //console.log(user);
+
+        // BRUNO !!! TESTING DATABASE CONNECTION !!!!
         console.log('ITS WORKING');
         let params = {
-            action:'getAll',
+            action:'getAllString',
             user: user
         }
         params = this.httpParamSerializerJQLike( params );
 
-        this.http.post( 'server/RoleDao.php', params ).then((obj) => {
-            console.log(obj);
+        this.http.post( 'server/UserDao.php', params ).then((obj) => {
+            console.log(obj.data);
             return obj.data;
         });
     }
