@@ -11,7 +11,6 @@ export class LoginServ {
         //console.log(user);
 
         // BRUNO !!! TESTING DATABASE CONNECTION !!!!
-        console.log('ITS WORKING');
         let params = {
             action:'getAllString',
             user: user
