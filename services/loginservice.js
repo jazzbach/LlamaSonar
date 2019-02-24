@@ -33,14 +33,20 @@ export class LoginServ {
         })
     }
 
+    getLoggedIn() {
+        let params = {
+            action: 'getAll',
+            user: user
+        }
+        params = this.httpParamSerializerJQLike( params );
+
+        this.http.post( 'server/RoleDao.php', params ).then((obj) => {
+            return obj.data;
+        })
+    }
+
     startGame () {
         //once all users logged in, start game
     }
-
-    //get all logged in 
-    //call php within
-    //no params
-    //call php
-    //return obj.data
 }
 

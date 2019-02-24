@@ -8,7 +8,7 @@
 'use strict';
 export class LoginComponentController {
 
-    constructor( $state, LoginService ) {
+    constructor( $interval, $state, LoginService ) {
         this.stateSvc = $state
         this.vm = {
             nickname: "unknown",
@@ -19,6 +19,8 @@ export class LoginComponentController {
         };
         this.currentPage = 'Login';
         this.logServ = LoginService;
+        this.interval = $interval;
+        this.interval(this.updateLobby, 5000);
     }
 
     authenticate( user ) {
@@ -34,12 +36,16 @@ export class LoginComponentController {
             }
         }
         if(this.checkUserFilled(user)){
-            this.logServ.authenticate(user);
-            this.updateScreen(user);
+            this.logServ.login(user);
+            this.updateUser(user);
         }
     }
 
-    updateScreen(user){
+    updateLobby(){
+        //let usersLoggedIn = this.logServ.getLoggedIn();
+    }
+
+    updateUser(user){
         let role = user.role.split(" ")[1];
         if(role == undefined) role = user.role;
         let id = user.team.substr(user.team.length - 1) + "-" + role;
@@ -91,7 +97,7 @@ bindings   Control the data binding between template variables and the controlle
 angular.module('app.components', ['app.services'])
     .component('login', {
         templateUrl: 'components/login.html',
-        controller:  ['$state', 'LoginService', LoginComponentController],
+        controller:  ['$interval', '$state', 'LoginService', LoginComponentController],
         bindings:    {
             nickname: "<",
             id:       "<",
