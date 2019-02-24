@@ -38,21 +38,22 @@ export class LoginComponentController {
             }
         }
         if(this.checkUserFilled(user)){
-            this.logServ.login(user);
+            //this.logServ.login(user);
             this.updateLobby(user);
             $("#join-btn").fadeOut();
         }
     }
 
     updateLobby(){
-        //let usersLoggedIn = this.logServ.getLoggedIn();
-        /*
-            for(let i = 0; i < userLoggedIn.length; i++){
-                updateUser(user);
+        this.logServ.getLoggedIn().then((res) => {
+            let usersLoggedIn = $.map(res, (value) => {
+                return [value];
+            });
+            for(let i = 0; i < usersLoggedIn.length; i++){
+                this.updateUser(usersLoggedIn[i]);
             }
-            if(usersLoggedIn.length == 8) setPage(user.role);
-        */
-       //this.setPage('Captain');
+            //if(usersLoggedIn.length == 8) setPage(user.role);
+        });
     }
 
     updateUser(user){

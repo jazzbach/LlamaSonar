@@ -38,14 +38,13 @@ export class LoginServ {
 
     getLoggedIn() {
         let params = {
-            action: 'getAll',
-            user: user
+            action:'getAllString'
         }
         params = this.httpParamSerializerJQLike( params );
 
-        this.http.post( 'server/RoleDao.php', params ).then((obj) => {
+        return this.http.post( 'server/UserDao.php', params ).then((obj) => {
             return obj.data;
-        })
+        });
     }
 
     startGame () {
