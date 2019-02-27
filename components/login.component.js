@@ -38,7 +38,7 @@ export class LoginComponentController {
             }
         }
         if(this.checkUserFilled(user)){
-            //this.logServ.login(user);
+            this.logServ.login(user); // BRUNO: COMMENT LINE AGAIN
             this.updateLobby(user);
             $("#join-btn").fadeOut();
         }
