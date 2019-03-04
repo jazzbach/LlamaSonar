@@ -26,41 +26,16 @@ class UserDAO {
                 case "getAll":
                     $response = $this->getAll();
                     break;
-
+                
                 case "add":
-                    $response = $this->add($_POST["value"]);
+                    $response = $this->add($_POST["user"]);
                     break;
 
-                case "update":
-                    $response = $this->update($_POST["value"]);
+                case "clean":
+                    $response = $this->clean();
                     break;
             }
         }
-
-        // Bruno. Following commented code not needed. Is here only for copy and paste
-        // ease of use
-        // try {
-        //     //$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-        //     //$pdo = new PDO($dsn, $user, $pass, $options);
-        //     $pdo = Connection::getConnection();
-        //     $query = 'select User.idUser as id, User.nickname, Role.role, Team.team from User
-        //             inner join Role on User.idRole  = Role.idRole
-        //             inner join Team on User.idTeam = Team.idTeam';
-        //     $data = $pdo->query($query)->fetchAll(PDO::FETCH_UNIQUE);
-        //     echo json_encode($data);
-        //     // One row 
-        //     //$stmt = $pdo->query($query);
-        //     //$row = $stmt->fetch();
-        //     //echo $row['nickname'] . "\n";
-        //     // Many rows
-        //     //while ($row = $stmt->fetch()){
-        //     //    echo $row['nickname'] . "\n";
-        //     //}
-        // } catch (PDOException $ex) {
-        //     //throw new PDOException($e->getMessage(), (int)$e->getCode());
-        //     die(json_encode(array(' error' => $ex->getTraceAsString ()   )));
-        // }
-        // //echo $result;
 
 		return 0;
     }
@@ -137,18 +112,21 @@ class UserDAO {
 		return 0;
     }
 
-    // --------------------------------------------------------------------------------------------------------------add
+    // ---------------------------------------------------------------------------------------------------------register
     private function add($data){
+        echo $data;
         try {
             $db = Connection::getConnection();
 
-            $statement = $db->prepare("insert into user(idUser, nickname, idRole, idTeam)
-                values ( NULL, ?, ?, ?)");
+            $statement = $db->prepare("update user set
+                    nickname = ?
+                    where idRole = ? and idTeam = ?
+            ");
 
             $statement->execute([
                 $data['nickname'],
-                $data['idRole'],
-                $data['idTeam']
+                $data['role'],
+                $data['team'],
             ]);
             
         }catch (PDOException $ex) {
@@ -159,25 +137,15 @@ class UserDAO {
 		return true;
 
     }
-    
-    // -----------------------------------------------------------------------------------------------------------update
-    private function update($data){
+
+    // ------------------------------------------------------------------------------------------------------------clean
+    private function clean(){
         try {
             $db = Connection::getConnection();
 
-            $statement = $db->prepare("update user set
-                    nickname = ?,
-                    idRole = ?,
-                    idTeam = ?
-                    where idUser = ?
-            ");
+            $statement = $db->prepare("update user set nickname = ''");
 
-            $statement->execute([
-                $data['nickname'],
-                $data['idRole'],
-                $data['idTeam'],
-                $data['idUser']
-            ]);
+            $statement->execute();
             
         }catch (PDOException $ex) {
             //throw new PDOException($e->getMessage(), (int)$e->getCode());
@@ -185,32 +153,8 @@ class UserDAO {
         }
 		
 		return true;
-
     }
-    
-    private function deleteAll(){
-        try {
-            $db = Connection::getConnection();
 
-            $statement = $db->prepare("update user set
-                    nickname = ?,
-                    idRole = ?,
-                    idTeam = ?
-                    where idUser = ?
-            ");
-
-            $statement->execute([
-                $data['nickname'],
-                $data['idRole'],
-                $data['idTeam'],
-                $data['idUser']
-            ]);
-            
-        }catch (PDOException $ex) {
-            //throw new PDOException($e->getMessage(), (int)$e->getCode());
-            die(json_encode(array(' error' => $ex->getTraceAsString ()   )));
-        }
-    }
 }
 
 // ========================================================================
@@ -218,39 +162,3 @@ class UserDAO {
 // MAIN Handler to process POST requests
 //
 $ajaxPostHandler = new UserDAO();
-
-// Bruno: Following code is useless. Is commented just for copying and pasting
-// it here and there easily
-// SQL READ
-// One row 
-//$stmt = $pdo->query($query);
-//$row = $stmt->fetch();
-//echo $row['nickname'] . "\n";
-
-// Many rows
-//while ($row = $stmt->fetch()){
-//    echo $row['nickname'] . "\n";
-//}
-
-// *** THIS IS JUST RANDOM CODE PLACED HERE FOR EASY COPYING AND PASTING ***
-
-
-
-/*
-	$response = [];
-	$response['data'] = $_POST["action"] . " FROM SERVER !!";
-
-	echo json_encode($response);
-*/
-
-/*
-// set as 'action' and if that key isn't empty ...
-	if (isset($_POST["action"]) && !empty($_POST["action"])) { //Checks if action value exists
-
-		// Get the actual value from key 'action'
-		$action = $_POST["action"];   // Get the action requested, make these up as needed
-
-		switch ($action) {     //Switch case for value of action
-			case "save":
-				$response = $this->do_submit($_POST);
-*/

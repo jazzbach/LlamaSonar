@@ -11,16 +11,43 @@ export class LoginServ {
         //console.log(user);
 
         // BRUNO !!! TESTING DATABASE CONNECTION !!!!
+        user.role = this.convertRole(user.role);
+        user.team = this.convertTeam(user.team);
+
+        console.log(user);
+
         let params = {
-            action:'getAllString',
+            action:'add',
             user: user
         }
         params = this.httpParamSerializerJQLike( params );
 
         this.http.post( 'server/UserDao.php', params ).then((obj) => {
-            console.log(obj.data);
+            //console.log(obj.data);
             return obj.data;
         });
+    }
+
+    convertRole(role){
+        switch(role){
+            case "Captain":
+            return 1;
+            case "First Mate":
+            return 2;
+            case "Radio Operator":
+            return 3;
+            case "First Engineer":
+            return 4;
+        }
+    }
+
+    convertTeam(team){
+        switch(team){
+            case "Team A":
+            return 1;
+            case "Team B":
+            return 2;    
+        }
     }
 
     logout ( user ){
@@ -38,14 +65,13 @@ export class LoginServ {
 
     getLoggedIn() {
         let params = {
-            action: 'getAll',
-            user: user
+            action:'getAllString'
         }
         params = this.httpParamSerializerJQLike( params );
 
-        this.http.post( 'server/RoleDao.php', params ).then((obj) => {
+        return this.http.post( 'server/UserDao.php', params ).then((obj) => {
             return obj.data;
-        })
+        });
     }
 
     startGame () {

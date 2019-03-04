@@ -71,8 +71,7 @@ export class App {
             .run(['$state', function($state) {
                 // Set the initial state
                 $state.transitionTo('Login');
-            }]);
-            
+            }]);            
     }
 }
 
