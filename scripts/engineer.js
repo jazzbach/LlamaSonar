@@ -1,3 +1,4 @@
+// #region Engineer Information
 /*
 ------------------------------ SYMBOLS ------------------------------
     ***     Movement / waiting order
@@ -39,16 +40,39 @@ First move:
 Second move:
     - Check if captain announced SURFACING. If SURFACING is true, all reactors will be cleared automatically.
 
+Self repair:
+    - If central systems that are linked are crossed out, they repair themselves. Engineer erases breakdowns on them.
+    - Self repair components: [MINE + TORPEDO]: MT, [DRONE + SONAR]: DS, [SILENCE + SCENARIO]: SS
+    - Areas: WEST: W, NORTH: N, SOUTH: S, EAST: E
+    - Self repair route pairs: (Area, Component)
+        - (W, DS), (W, SS), (W, MT), (E, MT)
+        - (N, SS), (N, MT), (N, SS), (E, DS)
+        - (S, DS), (S, SS), (S, MT), (E, SS)
+---------------------------------------------------------------------
+*/
+// #endregion Engineer Information
 
-
+/*
+----------------------------- VARIABLES -----------------------------
 
 ---------------------------------------------------------------------
- */
 
+----------------------------- FUNCTIONS -----------------------------
+GetCourse()
+{
+    - Get course update from captain
+    - Enable / disable area
+    CrossSystemPair();
+}
 
+CrossSystemPair()
+{
+    - Cross systempair at the enabled area
+}
 
- /*
- ----------------------------- FUNCTIONS -----------------------------
-
- ---------------------------------------------------------------------
- */
+CrossReactor()
+{
+    - Cross reactor at the enabled area
+}
+---------------------------------------------------------------------
+*/

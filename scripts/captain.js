@@ -1,3 +1,4 @@
+// #region Captain Information
 /*
 ------------------------------ SYMBOLS ------------------------------
     ***     Movement / waiting order
@@ -38,19 +39,15 @@ Second move:
     + Decide to repair the reactor: SURFACING
         |-> If surface, send surfacing information to engineer.
     + Decide to use AVAILABLE systems: MINE / TORPEDO / DRONE / SONAR / SILENCE / RADIATION
-        |-> Ifnform 
+        |-> Ifnform
 
 ---------------------------------------------------------------------
 */
-
-
-
-
-
+// #endregion Captain Information
 
 /*
 ----------------------------- VARIABLES -----------------------------
-var CoursePoints[] // For holding all points passed by submarine
+let coursePoints = []      // List for holding all points passed by submarine
 
 ---------------------------------------------------------------------
 
@@ -59,7 +56,7 @@ SetStartingPoint()
 {
     - Set position x,y
     - Draw current position onto the map
-    - UpdateCourse(CoursePoint[])
+    - UpdateCourse(coursePoints[])
 
     - Send position to radio operator
 }
@@ -69,21 +66,21 @@ SetCourse()
     - Traverse points on CoursePoints[]
         - Enable / disable NORTH / SOUTH / EAST / WEST buttons
     - Get click from buttons: NORTH / SOUTH / EAST / WEST
-    - UpdateCourse(CoursePoint[])
+    - UpdateCourse(coursePoints[])
 
     - Send course to radio operator.
     - Send course to first mate.
     - Send course to engineer.
 }
 
-UpdateCourse(CoursePoint[])
+UpdateCourse(coursePoints[])
 {
-    Add position to CoursePoints[]
+    - Add position to CoursePoints[]
 }
 
 UseSystem()
 {
-    
+
 }
 ---------------------------------------------------------------------
 */
