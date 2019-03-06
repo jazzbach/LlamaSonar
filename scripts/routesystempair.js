@@ -1,3 +1,5 @@
+/* Copyright (C) 2019, Team Llama: Sue Gonzales, Bruno Costa, Angela Webber, Can Bayraktarkatal, All Rights Reserved */
+
 'use strict';
 
 import Routes from './routes.js'

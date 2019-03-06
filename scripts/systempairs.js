@@ -1,3 +1,5 @@
+/* Copyright (C) 2019, Team Llama: Sue Gonzales, Bruno Costa, Angela Webber, Can Bayraktarkatal, All Rights Reserved */
+
 'use strict';
 
 import System from './system.js'
@@ -7,8 +9,8 @@ import System from './system.js'
 // System pairs: [MINE + TORPEDO]: MT, [DRONE + SONAR]: DS, [SILENCE + SCENARIO]: SS
 // This class will be used for building routeservice.js script.
 
-export default class SystemPair{
-    constructor(system1, system2){
+export default class SystemPair {
+    constructor(system1, system2) {
         this.system1 = system1;
         this.system2 = system2;
     }

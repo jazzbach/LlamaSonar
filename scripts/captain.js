@@ -1,3 +1,5 @@
+/* Copyright (C) 2019, Team Llama: Sue Gonzales, Bruno Costa, Angela Webber, Can Bayraktarkatal, All Rights Reserved */
+
 // #region Captain Information
 /*
 ------------------------------ SYMBOLS ------------------------------
@@ -29,7 +31,7 @@ First move:
 
 
 *** Captain waits for the first mate, engineer and radio operator to perform their tasks. ***
-*** Captain makes the second move. *** 
+*** Captain makes the second move. ***
 
 Second move:
     - Get crossed system information from engineer.

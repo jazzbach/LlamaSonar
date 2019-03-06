@@ -1,3 +1,5 @@
+/* Copyright (C) 2019, Team Llama: Sue Gonzales, Bruno Costa, Angela Webber, Can Bayraktarkatal, All Rights Reserved */
+
 -- MySQL dump 10.13  Distrib 5.7.24, for macos10.14 (x86_64)
 --
 -- Host: 127.0.0.1    Database: sonardb

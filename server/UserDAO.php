@@ -1,5 +1,7 @@
 <?php
 
+/* Copyright (C) 2019, Team Llama: Sue Gonzales, Bruno Costa, Angela Webber, Can Bayraktarkatal, All Rights Reserved */
+
 /*
  * Class that accesses the Database and retrieves information from the
  * "User" table.
